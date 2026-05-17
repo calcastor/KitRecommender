@@ -1,7 +1,7 @@
 package me.pablete1234.kit.util.matrix;
 
 import com.google.common.collect.Iterators;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -30,14 +30,14 @@ public class Matrix implements Iterable<Row>, Comparable<Matrix> {
         return Arrays.stream(data).mapToDouble(Row::total).sum();
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Iterator<Row> iterator() {
         return Iterators.forArray(data);
     }
 
     @Override
-    public int compareTo(@NotNull Matrix o) {
+    public int compareTo(@NonNull Matrix o) {
         return Double.compare(sum(), o.sum());
     }
 }

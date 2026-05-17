@@ -6,7 +6,6 @@ import me.pablete1234.kit.util.category.Tool;
 import me.pablete1234.kit.util.category.Weapon;
 import me.pablete1234.kit.util.matrix.Matrix;
 import me.pablete1234.kit.util.matrix.Row;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -90,7 +89,7 @@ public class NaiveBayesPredictor4 implements KitPredictor {
     }
 
     public Row predict(CategorizedKit kit, Category predict) {
-        @Nullable Matrix mat = chances.get(predict);
+        Matrix mat = chances.get(predict);
 
         Row result = new Row();
         for (int i = 0; mat != null && i < kit.size(); i++) {

@@ -6,7 +6,7 @@ import com.google.common.collect.Multiset;
 import me.pablete1234.kit.util.Categories;
 import me.pablete1234.kit.util.category.Category;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import tc.oc.pgm.util.inventory.Slot;
 
 import java.util.Iterator;
@@ -44,7 +44,7 @@ public class CategorizedKitImpl implements KitPredictor.CategorizedKit {
         return data[idx];
     }
 
-    @NotNull
+    @NonNull
     @Override
     public Iterator<Category> iterator() {
         return Iterators.forArray(data);

@@ -10,7 +10,6 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandException;
 import org.bukkit.command.CommandExecutor;
@@ -46,7 +45,7 @@ public class CommandHandler implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (KITDATA_COMMAND.equals(label)) {
             String res = handleKitData(sender, command, args);
-            if (res != null) sender.sendMessage(ChatColor.RED + res);
+            if (res != null) Audience.get(sender).sendMessage(text(res, NamedTextColor.RED));
             return true;
         }
         return false;
@@ -60,19 +59,17 @@ public class CommandHandler implements CommandExecutor {
         if (!(sender instanceof Player)) return "This command cannot be used from the console";
 
         Player target = args.length == 1 && sender.hasPermission(KITDATA_ALL_PERMISSION) ?
-                Bukkit.getPlayer(args[0], sender) : (Player) sender;
+                Bukkit.getPlayer(args[0]) : (Player) sender;
 
         if (target == null) return "Player not found";
 
         KitPredictor p = predictors.getPredictor(target.getUniqueId());
-        if (!(p instanceof NaiveBayesPredictor4)) return "Currently used model couldn't be displayed!";
-
-        NaiveBayesPredictor4 nbp = (NaiveBayesPredictor4) p;
+        if (!(p instanceof NaiveBayesPredictor4 nbp)) return "Currently used model couldn't be displayed!";
 
         if (nbp.getChances().isEmpty()) return "No preferences have yet been recorded";
 
         TextComponent.Builder overview = text();
-        overview.append(text(target.getName(target) + "'s kits:", NamedTextColor.GOLD));
+        overview.append(text(target.getName() + "'s kits:", NamedTextColor.GOLD));
         overview.append(newline());
 
         Map.Entry<List<Component>, List<Component>> categories = nbp.getChances().entrySet()

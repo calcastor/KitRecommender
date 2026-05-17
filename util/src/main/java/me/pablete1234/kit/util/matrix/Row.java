@@ -1,7 +1,7 @@
 package me.pablete1234.kit.util.matrix;
 
 import it.unimi.dsi.fastutil.doubles.DoubleIterator;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 import java.util.PrimitiveIterator;
 
@@ -78,9 +78,8 @@ public class Row implements Iterable<Double> {
         maxIdx = -1;
     }
 
-    @NotNull
     @Override
-    public PrimitiveIterator.OfDouble iterator() {
+    public PrimitiveIterator.@NonNull OfDouble iterator() {
         return new DoubleIterator() {
             int cursor = 0;
 

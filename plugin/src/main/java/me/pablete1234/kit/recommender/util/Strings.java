@@ -1,8 +1,8 @@
 package me.pablete1234.kit.recommender.util;
 
-import net.md_5.bungee.api.ChatColor;
+import org.bukkit.ChatColor;
 
-import static org.apache.commons.lang.StringUtils.repeat;
+import static org.apache.commons.lang3.StringUtils.repeat;
 
 public class Strings {
     private static final String INFINITY = "\u221e";

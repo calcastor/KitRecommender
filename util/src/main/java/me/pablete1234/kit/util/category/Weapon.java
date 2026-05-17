@@ -3,12 +3,13 @@ package me.pablete1234.kit.util.category;
 import com.google.common.collect.ImmutableSet;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import tc.oc.pgm.util.bukkit.Enchantments;
 
 public enum Weapon implements EnchantmentCategory {
     SWORD(Category.findMaterials("_SWORD"),
-            Enchantment.DAMAGE_ALL, Enchantment.KNOCKBACK, Enchantment.FIRE_ASPECT),
+            Enchantments.SHARPNESS, Enchantments.KNOCKBACK, Enchantments.FIRE_ASPECT),
     BOW(ImmutableSet.of(Material.BOW),
-            Enchantment.ARROW_DAMAGE, Enchantment.ARROW_KNOCKBACK, Enchantment.ARROW_FIRE, Enchantment.ARROW_INFINITE);
+            Enchantments.POWER, Enchantments.PUNCH, Enchantments.FLAME, Enchantments.INFINITY);
 
     private final ImmutableSet<Material> materials;
     private final Enchantment[] enchants;

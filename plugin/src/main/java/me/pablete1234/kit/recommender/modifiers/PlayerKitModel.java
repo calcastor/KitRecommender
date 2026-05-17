@@ -7,7 +7,7 @@ import me.pablete1234.kit.util.KitSorter;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 import tc.oc.pgm.kits.ApplyItemKitEvent;
 import tc.oc.pgm.util.inventory.Slot;
 

@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.function.Function;
 
+import static tc.oc.pgm.util.nms.PlayerUtils.PLAYER_UTILS;
+
 /**
  * Generic KitModifier which acts as a proxy to player-specific kit modifiers
  * Instances of the player-specific kit modifiers are obtained from the provided factory
@@ -37,7 +39,7 @@ public class GlobalToPlayerKM implements KitModifier {
     @Override
     public boolean learnPreferences(InventoryCloseEvent event) {
         MatchPlayer pl = PGM.get().getMatchManager().getPlayer(event.getPlayer());
-        if (pl == null || !pl.canInteract() || !pl.getBukkit().willBeOnline()) return false; // Ignore observers
+        if (pl == null || !pl.canInteract() || !PLAYER_UTILS.willBeOnline(pl.getBukkit())) return false; // Ignore observers
 
         UUID player = event.getPlayer().getUniqueId();
         KitModifier km = playerKitModifiers.get(player);

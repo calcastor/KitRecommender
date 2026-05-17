@@ -3,9 +3,6 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
@@ -32,7 +29,7 @@ dependencies {
     } else {
         compileOnly("com.github.pablete1234:parquet-floor:java8-SNAPSHOT")
     }
-    compileOnly("org.jetbrains:annotations:22.0.0")
+    api("org.jspecify:jspecify:1.0.0")
 }
 
 group = "me.pablete1234.kit"
@@ -40,10 +37,10 @@ version = "1.7.0"
 description = "Plugin to automatically sort kits for the player"
 
 tasks {
-    withType<JavaCompile>() {
+    withType<JavaCompile> {
         options.encoding = "UTF-8"
     }
-    withType<Javadoc>() {
+    withType<Javadoc> {
         options.encoding = "UTF-8"
     }
 }

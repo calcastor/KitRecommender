@@ -9,7 +9,7 @@ public interface EnchantmentCategory extends Category {
         Enchantment[] enchants = getEnchantments();
         byte data = 0;
         for (int i = 0; i < enchants.length; i++)
-            if (is.containsEnchantment(enchants[i])) data |= (1 << i);
+            if (is.containsEnchantment(enchants[i])) data |= (byte) (1 << i);
         return data;
     }
 

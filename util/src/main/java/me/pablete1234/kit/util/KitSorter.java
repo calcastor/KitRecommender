@@ -6,7 +6,7 @@ import me.pablete1234.kit.util.model.KitPredictor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import tc.oc.pgm.kits.tag.ItemModifier;
+import tc.oc.pgm.kits.tag.TeamColorApplicator;
 import tc.oc.pgm.util.inventory.Slot;
 
 import java.time.Duration;
@@ -269,7 +269,7 @@ public class KitSorter<K, C, KI, CI> {
             return kit.getType() == item.getType() &&
                     // If material has durability (eg: sword), ignore. Otherwise (eg: wool color) check durability.
                     (kit.getType().getMaxDurability() > 0 ||
-                            ItemModifier.TEAM_COLOR.has(kit) ||
+                            TeamColorApplicator.TEAM_COLOR.has(kit) ||
                             kit.getDurability() == item.getDurability()) &&
                     kit.getEnchantments().equals(item.getEnchantments());
         }

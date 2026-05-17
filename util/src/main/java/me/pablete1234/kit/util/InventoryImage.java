@@ -8,7 +8,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 @SuppressWarnings("deprecation")
 public class InventoryImage {
@@ -90,7 +89,7 @@ public class InventoryImage {
         return "InventoryImage{" +
                 "contents=" + Arrays.stream(contents)
                         .mapToObj(InventoryImage::deserialize)
-                        .collect(Collectors.toList()) +
+                        .toList() +
                 '}';
     }
 

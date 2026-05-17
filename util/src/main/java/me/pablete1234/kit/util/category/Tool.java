@@ -3,6 +3,7 @@ package me.pablete1234.kit.util.category;
 import com.google.common.collect.ImmutableSet;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import tc.oc.pgm.util.bukkit.Enchantments;
 
 public enum Tool implements EnchantmentCategory {
     PICKAXE,
@@ -11,7 +12,7 @@ public enum Tool implements EnchantmentCategory {
     HOE,
     SHEARS(ImmutableSet.of(Material.SHEARS));
 
-    private static final Enchantment[] ENCHANTS = {Enchantment.DIG_SPEED, Enchantment.SILK_TOUCH, Enchantment.DURABILITY};
+    private static final Enchantment[] ENCHANTS = {Enchantments.EFFICIENCY, Enchantments.SILK_TOUCH, Enchantments.UNBREAKING};
     private final ImmutableSet<Material> materials;
 
     Tool(ImmutableSet<Material> materials) {

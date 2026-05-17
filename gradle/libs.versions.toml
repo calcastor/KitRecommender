@@ -1,9 +1,19 @@
 # https://docs.gradle.org/current/userguide/platforms.html#sub::toml-dependencies-format
 
 [versions]
+paper-api = "1.8_1.21.11-SNAPSHOT"
+it-unimi-dsi-fastutil = "8.5.15"
+com-google-guava = "17.0"
+com-google-code-gson = "2.11.0"
+org-apache-commons-commons-lang3 = "3.17.0"
 app-ashcon-sportpaper = "1.8.8-R0.1-SNAPSHOT"
 tc-oc-pgm-core = "0.16-SNAPSHOT"
 
 [libraries]
+paper-api = { module = "dev.pgm.paper:paper-api", version.ref = "paper-api" }
+it-unimi-dsi-fastutil = { module = "it.unimi.dsi:fastutil", version.ref = "it-unimi-dsi-fastutil" }
+com-google-guava = { module = "com.google.guava:guava", version.ref = "com-google-guava" }
+com-google-code-gson = { module = "com.google.code.gson:gson", version.ref = "com-google-code-gson" }
+org-apache-commons-commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "org-apache-commons-commons-lang3" }
 app-ashcon-sportpaper = { module = "app.ashcon:sportpaper", version.ref = "app-ashcon-sportpaper" }
 tc-oc-pgm-core = { module = "tc.oc.pgm:core", version.ref = "tc-oc-pgm-core" }

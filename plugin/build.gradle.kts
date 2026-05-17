@@ -9,6 +9,10 @@ dependencies {
     implementation(project(":KitUtil"))
     compileOnly(libs.app.ashcon.sportpaper)
     compileOnly(libs.tc.oc.pgm.core)
+    compileOnly(libs.it.unimi.dsi.fastutil)
+    compileOnly(libs.com.google.guava)
+    compileOnly(libs.com.google.code.gson)
+    compileOnly(libs.org.apache.commons.commons.lang3)
 }
 
 tasks.named<ShadowJar>("shadowJar") {
@@ -26,14 +30,22 @@ tasks.named<ShadowJar>("shadowJar") {
 
 tasks {
     processResources {
+        val name = project.name
+        val description = project.description
+        val version = project.version.toString()
+        val commitHash = project.latestCommitHash()
+
         filesMatching(listOf("plugin.yml")) {
             expand(
-                "name" to project.name,
-                "description" to project.description,
-                "mainClass" to "me.pablete1234.kit.recommender.KitRecommender",
-                "version" to project.version,
-                "commitHash" to project.latestCommitHash(),
-                "url" to "https://github.com/Pablete1234/KitRecommender"
+                mapOf(
+                    "name" to name,
+                    "description" to description,
+                    "mainClass" to "me.pablete1234.kit.recommender.KitRecommender",
+                    "version" to version,
+                    "apiVersion" to "1.21.11",
+                    "commitHash" to commitHash,
+                    "url" to "https://github.com/Pablete1234/KitRecommender"
+                )
             )
         }
     }

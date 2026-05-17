@@ -14,7 +14,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 import tc.oc.pgm.api.PGM;
 
 import java.io.DataInputStream;
